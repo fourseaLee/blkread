@@ -166,6 +166,7 @@ target_link_libraries(common util secp256k1)
 # Bitcoin server facilities
 add_library(server
 	txdb.cpp
+	blockread.cpp
     )
 # This require libevent
 find_package(Event REQUIRED)
@@ -191,6 +192,6 @@ else()
   target_link_libraries(server ${BCRYPT_LIBRARY})
 endif()
 
-add_executable(blockread blockread.cpp)
+add_executable(blockread main.cpp)
 target_link_libraries(blockread server)
 
